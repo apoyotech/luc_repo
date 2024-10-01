@@ -23,7 +23,7 @@
 			<screenshot></screenshot>
 		</assets>  
   </extension>
-
+</addon>
 
 
 <addon id="plugin.program.luc_kodi.wizard" name="luc_kodi.wizard" version="1.0.0" provider-name="[COLOR red]apoyotech[/COLOR]">
@@ -66,7 +66,7 @@
 				<screenshot></screenshot>
 		</assets>
 	</extension>
-
+</addon>
 
 
 
@@ -101,7 +101,7 @@
 				<screenshot></screenshot>
 		</assets>
 	</extension>
-
+ </addon>
 
 
 <addon id="repository.chainsrepo" name="Chains Repository" provider-name="Chains" version="0.0.15">
@@ -141,7 +141,7 @@
 			<screenshot></screenshot>
 		</assets>
 	</extension>
-
+ </addon>
 
 <addon id="repository.cMaNWizard" name="cMaN's Wizard Repository" version="2.1" provider-name="cMaN">
         <extension point="xbmc.addon.repository" name="cMaN's Wizard Repository">
@@ -171,7 +171,7 @@
             <fanart>fanart.jpg</fanart>
 		</assets>
     </extension>
-
+ </addon>
 
 
 <addon id="repository.funstersplace" name="funstersplace Repository" version="0.3" provider-name="funstersplace">
@@ -196,7 +196,7 @@
             <fanart>fanart.jpg</fanart>
         </assets>
 	</extension>
-
+ </addon>
 
 
 
@@ -204,164 +204,6 @@
 
  
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
