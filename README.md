@@ -1,1 +1,1 @@
-luc_repo for open source kodi
+ repository.luc_repo for open source kodi
