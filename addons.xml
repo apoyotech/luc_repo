@@ -19,11 +19,10 @@
 			<icon>icon.png</icon>
 			<fanart>fanart.jpg</fanart>
 			<screenshot></screenshot>
-			<screenshot></screenshot>
-			<screenshot></screenshot>
-		</assets>  
+	</assets>  
   </extension>
 </addon>
+
 
 
 <addon id="plugin.program.luc_kodi.wizard" name="luc_kodi.wizard" version="1.0.0" provider-name="[COLOR red]apoyotech[/COLOR]">
@@ -68,10 +67,12 @@
 	</extension>
 </addon>
 
-
-
     
-  <addon id="plugin.program.simplewizard" name="Simple Wizard" version="3.0.5" provider-name="Slam, Sarge, Funsterbe, BYB">
+  
+  
+  
+  
+ <addon id="plugin.program.simplewizard" name="Simple Wizard" version="3.0.5" provider-name="Slam, Sarge, Funsterbe, BYB">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 		<import addon="script.module.requests" optional="true" />
