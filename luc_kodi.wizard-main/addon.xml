@@ -24,13 +24,13 @@
 		<disclaimer lang="en_GB">This Addon contains no content</disclaimer>
 		<language>en</language>
 		<platform>all</platform>
-		<license>GPL-2.0-or-later</license>
+		<license>GPL-3.0-or-later</license>
 		<forum></forum>
 		<website></website> 
 		<email></email>
 		<source></source>
-		<news>Initial release 1.0.0 -Public.
-		</news>
+		<news lang="en_GB">Initial release 1.0.0 -Public.</news>
+		
 		<assets>
 				<icon>resources/icon.png</icon>
 				<fanart>resources/fanart.jpg</fanart>
