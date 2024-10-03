@@ -1,7 +1,6 @@
 <addons>
 
-
-<addon id="repository.luc_repo" name="luc_repo" version="1.0.0" provider-name="luc_kodi">
+<addon id="repository.luc_repo" name="luc_repo" version="1.0.0" provider-name="[COLOR red]luc_kodi[/COLOR]">
    <extension point="xbmc.addon.repository" name="luc_repo">
 		<dir>
 			<info compressed="false">https://raw.githubusercontent.com/apoyotech/luc_repo/refs/heads/main/addons.xml</info>
@@ -10,20 +9,17 @@
 		</dir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
-    <summary lang="en"> Welcome to the luc_repo</summary>
-    <description lang="en">luc_repo for  Kodi</description>
+    <summary lang="en_GB"> Welcome to the luc_repo</summary>
+    <description lang="en_GB">[COLOR red]luc_repo for Kodi.[/COLOR]</description>
     <platform>all</platform>
   <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>  
   <disclaimer lang="en">The author of this repository do not host any of the content which is found and have no affiliation with any of the content providers. Use at your own risk!</disclaimer>  
-  <assets>
-			<icon>icon.png</icon>
-			<fanart>fanart.jpg</fanart>
-			<screenshot></screenshot>
+  <assets>	
+	 <icon>icon.png</icon>
+     <fanart>fanart.jpg</fanart>	
 	</assets>  
   </extension>
 </addon>
-
-
 
 <addon id="repository.diggz" name="Diggz Repository" version="18" provider-name="Diggz">
     <extension point="xbmc.addon.repository" name="Diggz Repository">
@@ -55,8 +51,7 @@
 </addon>
 
     
-  
-  <addon id="plugin.program.simplewizard" name="Simple Wizard" version="3.0.5" provider-name="Slam, Sarge, Funsterbe, BYB">
+<addon id="plugin.program.simplewizard" name="Simple Wizard" version="3.0.5" provider-name="Slam, Sarge, Funsterbe, BYB">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 		<import addon="script.module.requests" optional="true" />
@@ -184,8 +179,7 @@
  </addon>
 
 
-
-   addon id="repository.kodinerds" name="Kodinerds Addon Repo" version="7.0.1.7" provider-name="Kodinerds">
+<addon id="repository.kodinerds" name="Kodinerds Addon Repo" version="7.0.1.7" provider-name="Kodinerds">
     <requires>
         <import addon="xbmc.addon" version="12.0.0"/>
     </requires>
@@ -317,126 +311,87 @@
 	</extension>
 </addon>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<addon id="repository.jurialmunkey" name="jurialmunkey Alpha Repository" version="3.4" provider-name="jurialmunkey">
+    <extension point="xbmc.addon.repository" name="jurialmunkey Alpha Repository">
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/repo/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/repo/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/repo/zips/</datadir>
+        </dir>
+		<dir minversion="18.0" maxversion="18.9.0">
+            <info compressed="false">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/leia/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/leia/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/leia/zips/</datadir>
+        </dir>
+        <dir minversion="18.9.0" maxversion="19.9.0">
+            <info compressed="false">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/matrix/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/matrix/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/matrix/zips/</datadir>
+        </dir>
+        <dir minversion="19.9.1" maxversion="20.9.0">
+            <info compressed="false">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/nexusrepo/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/nexusrepo/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/nexusrepo/zips/</datadir>
+        </dir>
+        <dir minversion="20.9.1">
+            <info compressed="false">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/omega/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/omega/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/omega/zips/</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>jurialmunkey Alpha Repository</summary>
+        <description>A repository for alpha releases of jurialmunkey's skins.</description>
+        <disclaimer></disclaimer>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+        </assets>
+    </extension>
+</addon>
+
+
+
+<addon id="plugin.program.luc_kodi.wizard" name="luc_kodi.wizard" version="1.0.0" provider-name="[COLOR red]apoyotech[/COLOR]">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+		<import addon="script.module.requests" version="2.31.0" />
+	        <import addon="script.module.certifi" version="2023.5.7" />
+	        <import addon="script.module.chardet" version="5.1.0" />
+	        <import addon="script.module.idna" version="3.4.0" />
+	        <import addon="script.module.urllib3" version="2.1.0" />
+	        <import addon="script.module.six" version="1.16.0" />
+	        <import addon="script.module.simplejson" version="3.19.1" />
+	        <import addon="script.module.soupsieve" version="2.4.1" />
+	        <import addon="script.module.inputstreamhelper" version="0.6.1" />
+	        <import addon="script.module.beautifulsoup4" version="4.9.3" />
+	        <import addon="script.module.kodi-six" version="0.1.3.1" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="addon.py">
+		<provides>executable</provides>
+	</extension>
+	<!--<extension point="xbmc.service" library="service.py" />-->
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">luc_kodi.wizard by apoyotech</summary>
+		<description lang="en_GB">This simple plugin.program.wizard it serves to create and install backups and maintenance in open source kodi</description>
+		<disclaimer lang="en_GB">This Addon contains no content</disclaimer>
+		<language>en</language>
+		<platform>all</platform>
+		<license>GPL-3.0-or-later</license>
+		<forum></forum>
+		<website></website> 
+		<email></email>
+		<source></source>
+		<news lang="en_GB">Initial release 1.0.0 -Public.</news>
+		<assets>
+				<icon>resources/icon.png</icon>
+				<fanart>resources/fanart.jpg</fanart>
+				<banner></banner>
+				<clearlogo></clearlogo>
+				<screenshot></screenshot>
+		</assets>
+	</extension>
+</addon>
 
 
 
