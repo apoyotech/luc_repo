@@ -1,5 +1,6 @@
 <addons>
 
+
 <addon id="repository.luc_repo" name="luc_repo" version="1.0.0" provider-name="[COLOR red]luc_kodi[/COLOR]">
    <extension point="xbmc.addon.repository" name="luc_repo">
 		<dir>
@@ -10,7 +11,7 @@
 	</extension>
 	<extension point="xbmc.addon.metadata">
     <summary lang="en_GB"> Welcome to the luc_repo</summary>
-    <description lang="en_GB">[COLOR red]luc_repo for Kodi.[/COLOR]</description>
+    <description lang="en_GB">[COLOR red]luc_repo for  Kodi[/COLOR]</description>
     <platform>all</platform>
   <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>  
   <disclaimer lang="en">The author of this repository do not host any of the content which is found and have no affiliation with any of the content providers. Use at your own risk!</disclaimer>  
@@ -20,8 +21,6 @@
 	</assets>  
   </extension>
 </addon>
-
-
 
     
 <addon id="plugin.program.simplewizard" name="Simple Wizard" version="3.0.5" provider-name="Slam, Sarge, Funsterbe, BYB">
