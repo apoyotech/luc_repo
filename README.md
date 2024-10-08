@@ -1,1 +1,1 @@
- repository.luc_repo for open source kodi
+Todo, que se encuentra ,en esta repo esta reunido, de paginas y repos que ya existen, en las paginas webs, relacionadas con el mundo, que rodea la aplicación ,open source de kodi.No, me hago responsable, del mal uso ,que puede generar todo tipos de practicas, que estén relacionados con la piratería, violación de derechos de autor y mas cosas que se pueden generar en el detrimento ,de las grandes plataformas de streaming o televisiones de pago.El propósitos ,de está repo, es solo de uso particular y de enseñanza propia.
