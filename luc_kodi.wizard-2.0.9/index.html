@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">    
+                <title>luc_kodi.wizard</title>
+    
+
+       <style>
+html {
+    background: rgb(211, 211, 211);
+    font-family:'Open Sans', sans-serif;
+    
+    
+}
+ 
+li::marker {
+color: rgb(205, 127, 50);
+}
+           
+           
+body {          
+   width: 100%;        
+   min-height: 100vh;    
+   padding-left: 20px;  
+   padding-right: 20px; 
+ }  
+     
+ 
+
+img {
+  width: 360px;
+  height: auto;
+  margin: 10px;
+  border: 3px solid darkgoldenrod;
+  border-radius: 15px;
+}
+
+
+header {
+   font-size: 23px;
+   text-align: center;
+   align-items: center;
+   margin-top: 20px;
+   margin-bottom: 40px;
+}   
+
+h1 {
+    background-image: linear-gradient(to right, #8b008b, #6082b6);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+h4 {         
+  font-family: monospace;
+  letter-spacing: -0.05em;
+  margin-top: 70px;          
+  font-size: 21px;
+  font-weight: 500;
+}   
+       
+      
+
+.button {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+  padding: 14px 25px;
+  border-radius: 16px;
+  font-size: 1.25em;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  height: auto;
+}
+
+.button span {
+  position: relative;
+  z-index: 1;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #272727;
+  border-radius: 14px;
+  transition: 0.5s;
+}
+
+.button:hover::before {
+  opacity: 0.7;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+  border-radius: 9px;
+  transition: 0.5s;
+  opacity: 0;
+  filter: blur(20px);
+}
+
+.button:hover:after {
+  opacity: 1;
+}
+
+       
+       </style>
+</head>
+
+ 
+<header>
+               <h1>Bienvenido a luc_kodi.wizard</h1>
+</header> 
+ 
+<h2>
+     <img  src="pictures/Imagen-1.jpg"  alt="Imagen1" loading="lazy">    
+     <img  src="pictures/Imagen-2.jpg"  alt="Imagen2" loading="lazy">
+     <img  src="pictures/Imagen-3.jpg"  alt="Imagen3" loading="lazy">     
+</h2>   
+  
+<button class="button"> 
+   <span>
+   Este ,plugin.program.wizard ,sirve ,para crear y instalar backups y varías tareas de mantenimiento, para, la aplicación open source kodi.
+   Esta inspirado ,en el plugin.program.simplewizard ,con todo los créditos para ellos,de mi parte y se incorpora con un pequeño toque mio.
+   </span>     
+</button>
+
+      
+<h4> 
+           <li><a href="luc_kodi.wizard-2.0.9.zip">luc_kodi.wizard-2.0.9.zip</a></li> 
+</h4> 
+ 
+  
+
+</body>
+</html>
