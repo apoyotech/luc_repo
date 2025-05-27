@@ -12,7 +12,7 @@
     <summary lang="en_GB"> Welcome to the luc_repo</summary>
     <description lang="en_GB">[COLOR fffa9900]luc_repo for  Kodi[/COLOR]</description>
     <platform>all</platform>
-  <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>  
+  <license>MIT License</license>  
   <disclaimer lang="en">The author of this repository do not host any of the content which is found and have no affiliation with any of the content providers. Use at your own risk!</disclaimer>  
   <assets>	
 	 <icon>icon.png</icon>
