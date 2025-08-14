@@ -1,0 +1,39 @@
+name: Update addons.xml.md5
+
+on:
+  push:
+    paths:
+      - 'addons.xml'   # Solo se ejecuta si cambia addons.xml en la raíz
+  workflow_dispatch:   # Permite ejecutarlo manualmente desde GitHub Actions
+
+permissions:
+  contents: write
+
+jobs:
+  update-md5:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate MD5 (Kodi format)
+        run: |
+          FILE_PATH="addons.xml"
+          test -f "$FILE_PATH" || { echo "No existe $FILE_PATH"; exit 1; }
+          HASH="$(md5sum "$FILE_PATH" | awk '{print $1}')"
+          echo "${HASH}  addons.xml" > addons.xml.md5
+
+      - name: Commit & push if changed
+        run: |
+          if git diff --quiet addons.xml.md5; then
+            echo "Sin cambios en addons.xml.md5"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add addons.xml.md5
+            git commit -m "chore: update addons.xml.md5 ($(date -u +'%Y-%m-%dT%H:%M:%SZ'))"
+            git push
+          fi
+          
