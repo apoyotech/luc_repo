@@ -4,20 +4,72 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">    
 <title>repository.luc_repo</title>
-<link rel="stylesheet" href="styles.min.css"> 
-     </head>
+
     
 
     <style>
-      * {
-       font-family:'Open Sans' ,sans-serif;
+      html {
+    background: #212121;
+    font-family:'Open Sans', sans-serif;
       }
-      * {
-        background-color:lightsaltegray;
-      }
-      </style>
-  
-  <body>
+ 
+li::marker {
+color: rgb(205, 127, 50);
+}
+
+        h1 {
+    background: linear-gradient(
+		to right,
+		var(--red),
+		var(--yellow),
+		var(--lime),
+		var(--green),
+		var(--cyan),
+		var(--blue),
+		var(--purple),
+		var(--pink)
+	);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	animation: rainbow 5s ease infinite;
+	background-size: 400% 100%;
+}
+
+@keyframes rainbow {
+	0%,
+	100% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 100% 0;
+	}
+}
+
+/* dark mode */
+@media (prefers-color-scheme:dark) {
+	:root {
+		--red: #f76e6e;
+		--yellow: #f7d564;
+		--lime: #b3f76e;
+		--green: #6ef790;
+		--cyan: #6ef7f7;
+		--blue: #83a0f7;
+		--purple: #b36ef7;
+		--pink: #f76ed5;
+		--accent: var(--blue);
+
+		--background: #1c1c1c;
+		--backdrop: #131313;
+		--foreground: #ddd;
+		--shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    }
+      
+  </style>
+    </head>
+        
+        
+<body>
     
     
     <div style="text-align: center;">
