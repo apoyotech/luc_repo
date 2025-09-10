@@ -174,106 +174,6 @@
 </addon>
 
 
-<addon id="repository.cocoscrapers" name="CocoScrapers Repository" version="1.0.1" provider-name="CocoScrapers">
-    <extension point="xbmc.addon.repository" name="CocoScrapers Repository">
-        <dir minversion="19.0">
-            <info compressed="false">https://raw.githubusercontent.com/not-coco-joe/repository.cocoscrapers/master/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/not-coco-joe/repository.cocoscrapers/master/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/not-coco-joe/repository.cocoscrapers/master/zips/</datadir>
-        </dir>
-    </extension>
-    <extension point="xbmc.addon.metadata">
-        <platform>all</platform>
-        <summary>CocoScrapers Repository</summary>
-        <description>Unofficial add-ons repository</description>
-    </extension>
-</addon>
-
-
-<addon id="repository.elementumorg" name="ElementumOrg repository" provider-name="elementumorg" version="0.0.5">
-    <requires>
-        <!--<import addon="xbmc.python" version="3.0.0"/>-->
-    </requires>
-    <extension point="xbmc.addon.repository">
-        <dir>
-            <info>http://127.0.0.1:65223/addons.xml</info>
-            <checksum>http://127.0.0.1:65223/addons.xml.md5</checksum>
-            <datadir>http://127.0.0.1:65223/</datadir>
-        </dir>
-    </extension>
-    <extension point="xbmc.python.script" library="default.py"/>
-    <extension point="xbmc.service" library="service.py"/>
-    <extension point="xbmc.addon.metadata">
-        <platform>all</platform>
-        <license>See https://github.com/ElementumOrg/repository.elementumorg/blob/master/LICENSE</license>
-        <source>https://github.com/ElementumOrg/repository.elementumorg</source>
-        <summary lang="en">GitHub virtual Add-on repository</summary>
-        <description lang="en">Customizable repository which acts as a proxy for defined GitHub users' add-ons updates.</description>
-        <news>
-- Allow running in standalone mode
-- Migrate to GitHub API
-- Add support for "tag_pattern" field
-- Add support for private repositories by supplying a "token"
-- Try to automatically determine zip ref from version
-- Multiple minor improvements
-        </news>
-        <assets>
-            <icon>icon.png</icon>
-        </assets>
-    </extension>
-</addon>
-
-
-<addon id="repository.jurialmunkey" name="jurialmunkey Alpha Repository" version="3.5" provider-name="jurialmunkey">
-    <extension point="xbmc.addon.repository" name="jurialmunkey Alpha Repository">
-        <dir>
-            <info compressed="false">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/repo/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/repo/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/repo/zips/</datadir>
-        </dir>
-        <dir minversion="19.9.1" maxversion="20.9.0">
-            <info compressed="false">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/nexusrepo/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/nexusrepo/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/nexusrepo/zips/</datadir>
-        </dir>
-        <dir minversion="20.9.1">
-            <info compressed="false">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/omega/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/omega/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/omega/zips/</datadir>
-        </dir>
-    </extension>
-    <extension point="xbmc.addon.metadata">
-        <summary>jurialmunkey Alpha Repository</summary>
-        <description>A repository for alpha releases of jurialmunkey's skins.</description>
-        <disclaimer></disclaimer>
-        <platform>all</platform>
-        <assets>
-            <icon>icon.png</icon>
-        </assets>
-    </extension>
-</addon>
-
-
-<addon id="repository.mediafusion" version="4.3.29" name="MediaFusion Repository" provider-name="Mohamed Zumair">
-    <extension point="xbmc.addon.repository" name="MediaFusion Repository">
-        <dir>
-            <info compressed="false">https://mhdzumair.github.io/MediaFusion/addons.xml</info>
-            <checksum>https://mhdzumair.github.io/MediaFusion/addons.xml.md5</checksum>
-            <datadir zip="true">https://mhdzumair.github.io/MediaFusion/</datadir>
-        </dir>
-    </extension>
-    <extension point="xbmc.addon.metadata">
-        <summary>MediaFusion Repository</summary>
-        <description>Repository for MediaFusion Kodi addon</description>
-        <platform>all</platform>
-        <assets>
-            <icon>mediafusion_logo.png</icon>
-            <fanart>mediafusion_logo.png</fanart>
-        </assets>
-    </extension>
-</addon>
-
-
 <addon id="plugin.video.luc_kodi" name="[COLOR mediumspringgreen][B]luc_[/B][/COLOR]kodi" provider-name="[COLOR ffffae00]apoyotech[/COLOR]" version="0.0.8">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" />
@@ -304,8 +204,7 @@
 </extension>
 </addon>
 
-
-<addon id="plugin.program.luc_kodi.wizard" name="[COLOR mediumspringgreen][B]luc_[/B][/COLOR]kodi.wizard" version="2.0.12" provider-name="[COLOR fffa9900]apoyotech[/COLOR]">	
+<addon id="plugin.program.luc_kodi.wizard" name="[B][COLOR ff00fa9a]luc_[/COLOR][/B]kodi.wizard" version="2.0.14" provider-name="[COLOR fffa9900]apoyotech[/COLOR]">	
 	<requires>
 	<import addon="xbmc.python" version="3.0.1"/>
 	</requires>
@@ -315,8 +214,8 @@
 	<extension point="xbmc.service" library="service.py" />
 	<extension point="xbmc.addon.metadata">
 		<summary lang="en_GB">[COLOR fffa9900]This plugin.program.wizard it is inspired by plugin.program.simplewizard and is used to create an install builds and maintenance in  the open source KODI application[/COLOR]</summary>
-		<description lang="en_GB">[COLOR mediumspringgreen]plugin.program.wizard for KODI[/COLOR]</description>
-		<disclaimer lang="en_GB">[COLOR mediumspringgreen]This plugin.program.wizard contains no content[/COLOR]</disclaimer>
+		<description lang="en_GB">[COLOR ff00fa9a]plugin.program.wizard for KODI[/COLOR]</description>
+		<disclaimer lang="en_GB">[COLOR ff00fa9a]This plugin.program.wizard contains no content[/COLOR]</disclaimer>
 		<language>en</language>
 		<platform>all</platform>
 		<license>GPL-3.0-or-later</license>
@@ -331,13 +230,14 @@
 				<banner></banner>
 				<clearlogo></clearlogo>
 				<screenshot>resources/screenshot-1.jpg</screenshot>
-                                <screenshot>resources/screenshot-2.jpg</screenshot>
-                                <screenshot>resources/screenshot-3.jpg</screenshot>		
+                <screenshot>resources/screenshot-2.jpg</screenshot>
+                <screenshot>resources/screenshot-3.jpg</screenshot>		
 		</assets>
 	</extension>
 </addon>
 
 </addons>
+
 
 
 
