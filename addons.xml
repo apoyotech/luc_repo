@@ -197,11 +197,11 @@
 	<assets>
 			<icon>icon.png</icon>
 			<fanart>fanart.jpg</fanart>
-		<screenshot>resources/screenshot1.jpg</screenshot>
- <screenshot>resources/screenshot2.jpg</screenshot>
- <screenshot>resources/screenshot3.jpg</screenshot>
-</assets>
-</extension>
+		    <screenshot>resources/screenshot1.jpg</screenshot>
+            <screenshot>resources/screenshot2.jpg</screenshot>
+            <screenshot>resources/screenshot3.jpg</screenshot>
+    </assets>
+    </extension>
 </addon>
 
 <addon id="plugin.program.luc_kodi.wizard" name="[B][COLOR ff00fa9a]luc_[/COLOR][/B]kodi.wizard" version="2.0.14" provider-name="[COLOR fffa9900]apoyotech[/COLOR]">	
@@ -237,6 +237,7 @@
 </addon>
 
 </addons>
+
 
 
 
