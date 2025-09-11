@@ -1,6 +1,6 @@
 <addons>
 
-<addon id="repository.luc_repo" name="[B][COLOR ff00fa9a]luc_[/COLOR][/B]repo" version="1.0.8" provider-name="[COLOR ffffae00]apoyotech[/COLOR]">
+<addon id="repository.luc_repo" name="[B][COLOR ff00fa9a]luc_[/COLOR][/B]repo" version="1.0.9" provider-name="[COLOR ffffae00]apoyotech[/COLOR]">
    <extension point="xbmc.addon.repository" name="luc_repo">
 		<dir>
 			<info compressed="false">https://raw.githubusercontent.com/apoyotech/luc_repo/refs/heads/main/addons.xml</info>
@@ -237,6 +237,7 @@
 </addon>
 
 </addons>
+
 
 
 
