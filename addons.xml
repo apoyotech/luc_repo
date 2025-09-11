@@ -5,7 +5,7 @@
 		<dir>
 			<info compressed="false">https://raw.githubusercontent.com/apoyotech/luc_repo/refs/heads/main/addons.xml</info>
 			<checksum>https://raw.githubusercontent.com/apoyotech/luc_repo/refs/heads/main/addons.xml.md5</checksum>
-			<datadir zip="true">https://raw.githubusercontent.com/apoyotech/luc_repo/refs/heads/main/</datadir>
+			<datadir zip="true">https://raw.githubusercontent.com/apoyotech/luc_repo/refs/heads/main/zips/</datadir>
 		</dir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
@@ -237,6 +237,7 @@
 </addon>
 
 </addons>
+
 
 
 
