@@ -174,11 +174,11 @@
 	</extension>
 </addon>
 
-<addon id="plugin.video.luc_kodi" name="[B][COLOR ff00fa9a]luc_[/COLOR][/B]kodi" provider-name="[COLOR ffffae00]apoyotech[/COLOR]" version="0.0.11">
+<addon id="plugin.video.luc_kodi" name="[B][COLOR ff00fa9a]luc_[/COLOR][/B]kodi" provider-name="[COLOR ffffae00]apoyotech[/COLOR]" version="0.0.12">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" />
 		<import addon="script.module.requests" />
-		<import addon="script.module.beautifulsoup4" optional="true" />
+		<import addon="script.module.beautifulsoup4" />
 		<import addon="plugin.video.youtube" optional="true" />
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="luc_kodi.py">
