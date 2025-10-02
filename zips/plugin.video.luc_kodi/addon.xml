@@ -2,7 +2,7 @@
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" />
 		<import addon="script.module.requests" />
-		<import addon="script.module.beautifulsoup4" optional="true" />
+		<import addon="script.module.beautifulsoup4" />
 		<import addon="plugin.video.youtube" optional="true" />
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="luc_kodi.py">
