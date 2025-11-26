@@ -1,4 +1,4 @@
-<addon id="plugin.video.luc_kodi" name="[B][COLOR ff00fa9a]luc_[/COLOR][/B]kodi" provider-name="[COLOR fffe9900]apoyotech[/COLOR]" version="0.0.29">
+<addon id="plugin.video.luc_kodi" name="[B][COLOR ff00fa9a]luc_[/COLOR][/B]kodi" provider-name="[COLOR fffe9900]apoyotech[/COLOR]" version="0.0.30">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" />
 		<import addon="script.module.requests" />
