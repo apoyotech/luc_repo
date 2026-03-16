@@ -174,7 +174,7 @@
 	</extension>
 </addon>
 
-<addon id="plugin.video.luc_kodi" name="[B][COLOR ff00fa9a]luc_[/COLOR][/B]kodi" provider-name="[COLOR fffdb515]apoyotech[/COLOR]" version="0.0.73">
+<addon id="plugin.video.luc_kodi" name="[B][COLOR ff00fa9a]luc_[/COLOR][/B]kodi" provider-name="[COLOR fffdb515]apoyotech[/COLOR]" version="0.0.74">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" />
 		<import addon="script.module.requests" />
@@ -298,7 +298,7 @@
     </extension>
 </addon>
 
-<addon id="service.luc_kodi.mdblist" name="service.luc_kodi.mdblist" version="0.0.2" provider-name="MDBlist,[COLOR fffdb515]apoyotech[/COLOR]">
+<addon id="service.luc_kodi.mdblist" name="service.luc_kodi.mdblist" version="0.0.3" provider-name="MDBlist,[COLOR fffdb515]apoyotech[/COLOR]">
     <requires>
         <import addon="xbmc.python" version="3.0.1"/>
         <import addon="script.module.requests" />
