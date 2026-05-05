@@ -1,125 +1,804 @@
 <!DOCTYPE html>
-<html>
-    <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">    
-<title>repository.luc_repo</title>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Repositorio de addons para Kodi con búsqueda IA, soporte Debrid completo y skins en 4K. Mantenido por apoyotech.">
+  <meta name="author" content="apoyotech">
+  <meta name="theme-color" content="#0c0c0c" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 
-    
+  <link rel="alternate" hreflang="es" href="https://apoyotech.github.io/luc_repo/">
+  <link rel="alternate" hreflang="en" href="https://apoyotech.github.io/luc_repo/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://apoyotech.github.io/luc_repo/">
 
-    <style>
-html {
-    background: #212121;
-    font-family:'Open Sans', sans-serif;
-      }
- 
-body {          
-   width: 100%;        
-   min-height: 100vh;    
-   padding-left: 20px;  
-   padding-right: 20px; 
- }  
-     
-		
-li::marker {
-color: rgb(205, 127, 50);
-}
+  <meta property="og:title" content="luc_repo · apoyotech">
+  <meta property="og:description" content="Repositorio de addons para Kodi con búsqueda IA, soporte Debrid completo y skins en 4K.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://apoyotech.github.io/luc_repo/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="luc_repo · apoyotech">
+  <meta name="twitter:description" content="Repositorio de addons para Kodi con búsqueda IA, soporte Debrid completo y skins en 4K.">
 
-h1 {
-    background: linear-gradient(
-		to right,
-		var(--red),
-		var(--yellow),
-		var(--lime),
-		var(--green),
-		var(--cyan),
-		var(--blue),
-		var(--purple),
-		var(--pink)
-	);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	animation: rainbow 5s ease infinite;
-	background-size: 400% 100%;
-}
+  <title>luc_repo · apoyotech</title>
 
-@keyframes rainbow {
-	0%,
-	100% {
-		background-position: 0 0;
-	}
-	50% {
-		background-position: 100% 0;
-	}
-}
-
-/* dark mode */
-@media (prefers-color-scheme:dark) {
-	:root {
-		--red: #f76e6e;
-		--yellow: #f7d564;
-		--lime: #b3f76e;
-		--green: #6ef790;
-		--cyan: #6ef7f7;
-		--blue: #83a0f7;
-		--purple: #b36ef7;
-		--pink: #f76ed5;
-		--accent: var(--blue);
-
-		--background: #1c1c1c;
-		--backdrop: #131313;
-		--foreground: #ddd;
-		--shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
-      
-  h2 {
-   color: #e8e8e8;
-   font-family: monospace;
-   letter-spacing: -0.05em;
-   font-size: 16px;
-   font-weight: 500;
-   margin-top: 20px;
-   margin-bottom: 30px;
-   padding-right: 20px;
-   padding-left: 20px;
-  }
-	
-	
-	</style>
-    </head>
-        
-        
+
+    :root {
+      color-scheme: dark light;
+
+      /* Dark theme (default) */
+      --bg: #0c0c0c;
+      --surface: #161616;
+      --surface-hover: #1c1c1c;
+      --border: #262626;
+      --text-primary: #fafafa;
+      --text-secondary: #a3a3a3;
+      --text-tertiary: #737373;
+      --cta-bg: #fafafa;
+      --cta-text: #0c0c0c;
+      --code-bg: #1f1f1f;
+      --code-text: #e5e5e5;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ffffff;
+        --surface: #f7f7f5;
+        --surface-hover: #efefed;
+        --border: #e5e5e2;
+        --text-primary: #0c0c0c;
+        --text-secondary: #525252;
+        --text-tertiary: #8a8a8a;
+        --cta-bg: #0c0c0c;
+        --cta-text: #ffffff;
+        --code-bg: #ececea;
+        --code-text: #1f1f1f;
+      }
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* i18n: hide the inactive language */
+    html[lang="es"] [data-i18n="en"],
+    html[lang="en"] [data-i18n="es"] {
+      display: none;
+    }
+
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 5vw, 2rem);
+      position: relative;
+    }
+
+    /* Language switcher */
+    .lang-switcher {
+      position: absolute;
+      top: clamp(1.25rem, 4vw, 2rem);
+      right: clamp(1.25rem, 5vw, 2rem);
+      display: inline-flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .lang-switcher button {
+      background: transparent;
+      border: none;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 5px 10px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: color 0.15s ease, background 0.15s ease;
+    }
+
+    .lang-switcher button:hover {
+      color: var(--text-primary);
+    }
+
+    .lang-switcher button[aria-pressed="true"] {
+      background: var(--bg);
+      color: var(--text-primary);
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 1rem 0 2.5rem;
+    }
+
+    .brand {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin: 0 0 12px;
+      letter-spacing: 0.02em;
+    }
+
+    h1.title {
+      font-size: clamp(2rem, 6vw, 2.75rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      margin: 0 0 0.75rem;
+      line-height: 1.1;
+      background: linear-gradient(to right, #a855f7 0%, #7c3aed 50%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      font-size: clamp(0.95rem, 2.2vw, 1.0625rem);
+      color: var(--text-secondary);
+      max-width: 36ch;
+      margin: 0 auto 1.75rem;
+      line-height: 1.55;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-primary {
+      background: var(--cta-bg);
+      color: var(--cta-text);
+      padding: 11px 22px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-primary:hover { opacity: 0.85; }
+    .cta-primary:active { transform: scale(0.98); }
+
+    .version-pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 13px;
+      padding: 6px 12px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+    }
+
+    /* Sections */
+    section { margin-top: 2.5rem; }
+
+    .section-label {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin: 0 0 1rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Addons */
+    .addon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .addon-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .addon-card:hover {
+      background: var(--surface-hover);
+      border-color: var(--text-tertiary);
+    }
+
+    .addon-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .addon-name {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0 0 2px;
+    }
+
+    .addon-id {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin: 0 0 10px;
+      font-family: var(--font-mono);
+    }
+
+    .addon-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* Installation steps */
+    .steps {
+      display: grid;
+      gap: 8px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .step {
+      display: flex;
+      gap: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 24px;
+      height: 24px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      flex-shrink: 0;
+      color: var(--text-primary);
+    }
+
+    .step-text {
+      font-size: 14px;
+      line-height: 1.55;
+      margin: 0;
+      color: var(--text-primary);
+    }
+
+    .step-text code {
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 2px 7px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-family: var(--font-mono);
+    }
+
+    /* Install method tabs */
+    .install-tabs {
+      display: inline-flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 3px;
+      gap: 2px;
+      margin-bottom: 14px;
+    }
+
+    .install-tabs button {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.15s ease, background 0.15s ease;
+    }
+
+    .install-tabs button:hover { color: var(--text-primary); }
+
+    .install-tabs button[aria-selected="true"] {
+      background: var(--bg);
+      color: var(--text-primary);
+      box-shadow: 0 0 0 1px var(--border);
+    }
+
+    .recommended-pill {
+      background: rgba(168, 85, 247, 0.15);
+      color: #c084fc;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 2px 7px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+    }
+
+    @media (prefers-color-scheme: light) {
+      .recommended-pill {
+        background: rgba(124, 58, 237, 0.1);
+        color: #7c3aed;
+      }
+    }
+
+    .tab-panel[hidden] { display: none; }
+
+    /* URL display block */
+    .url-display {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 4px 4px 4px 14px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .url-display code {
+      flex: 1;
+      min-width: 0;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--code-text);
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 6px 0;
+      background: transparent;
+    }
+
+    .copy-btn {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .copy-btn:hover {
+      background: var(--surface-hover);
+      border-color: var(--text-tertiary);
+    }
+
+    .copy-btn[data-copied="true"] {
+      color: #22c55e;
+      border-color: #22c55e;
+    }
+
+    .copy-icon { width: 13px; height: 13px; flex-shrink: 0; }
+
+    /* Support / Ko-fi */
+    .support-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .support-text {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .support-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0 0 4px;
+      color: var(--text-primary);
+    }
+
+    .support-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .kofi-btn {
+      background: #ff5e5b;
+      color: #ffffff;
+      padding: 11px 20px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .kofi-btn:hover { opacity: 0.9; }
+    .kofi-btn:active { transform: scale(0.98); }
+
+    .kofi-cup {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-tertiary);
+      line-height: 1.65;
+    }
+
+    footer p { margin: 0 0 6px; }
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-family: var(--font-mono);
+    }
+    footer a:hover { color: var(--text-primary); }
+
+    /* Focus styles for accessibility */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--text-primary);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
 <body>
-    
-  <header>
-    <div style="text-align: center;">
-      <h1>Bienvenido a repository luc_repo</h1>
+  <main>
+    <div class="lang-switcher" role="group" aria-label="Language selector">
+      <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
     </div>
-  </header>  
-     
-    
-    <h2>
-    <li>The author of this repository do not host any of the content which is found and have no affiliation with any of the content providers.</li>
-    <li>Todo lo que se encuentra en esta repo proviene de paginas y repos que ya existen, en paginas webs relacionadas con el mundo que rodea la aplicación open source de kodi.</li>   
-    <li>No me hago responsable del mal uso que puede generar todo tipos de practicas, que estén relacionados con la piratería, violación de derechos de autor y mas cosas que se pueden generar en el detrimento de las grandes plataformas de streaming o televisiones de pago.</li>
-    <li>El propósito de este repo es solo de uso particular y de enseñanza propia.</li>
-	</h2>  
-     
-     
-    
-    
-    <ul>
-  <li><a href="repository.luc_repo-1.0.10.zip" style="color: #f4f4f4;">repository.luc_repo-1.0.10.zip</a></li>
-    </ul>
-  
-    
-      
-     
-     
-     
- 
-  
-  </body>
-  </html>
-        
+
+    <header class="hero">
+      <p class="brand">apoyotech</p>
+      <h1 class="title">luc_repo</h1>
+      <p class="tagline" data-i18n="es">Repositorio de addons para Kodi con búsqueda IA, soporte Debrid completo y skins en 4K.</p>
+      <p class="tagline" data-i18n="en">Kodi add-on repository with AI-powered search, full Debrid integration and 4K skins.</p>
+      <div class="cta-row">
+        <a class="cta-primary" href="repository.luc_repo-1.0.10.zip" download>
+          <span data-i18n="es">Descargar repositorio</span>
+          <span data-i18n="en">Download repository</span>
+        </a>
+        <span class="version-pill">v1.0.10</span>
+      </div>
+    </header>
+
+    <section aria-labelledby="addons-label">
+      <h2 class="section-label" id="addons-label">
+        <span data-i18n="es">Addons incluidos</span>
+        <span data-i18n="en">Included add-ons</span>
+      </h2>
+      <div class="addon-grid">
+        <article class="addon-card">
+          <div class="addon-icon" aria-hidden="true">LK</div>
+          <p class="addon-name">luc_kodi</p>
+          <p class="addon-id">plugin.video</p>
+          <p class="addon-desc" data-i18n="es">Plugin principal con scrapers, integración Debrid, Trakt, MDBList y búsqueda en lenguaje natural con Gemini.</p>
+          <p class="addon-desc" data-i18n="en">Main plugin with scrapers, Debrid integration, Trakt, MDBList and natural-language search powered by Gemini.</p>
+        </article>
+        <article class="addon-card">
+          <div class="addon-icon" aria-hidden="true">WZ</div>
+          <p class="addon-name">luc_kodi.wizard</p>
+          <p class="addon-id">plugin.program</p>
+          <p class="addon-desc" data-i18n="es">Asistente de instalación, configuración y mantenimiento con interfaz personalizada.</p>
+          <p class="addon-desc" data-i18n="en">Installation, configuration and maintenance assistant with a custom interface.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="install-label">
+      <h2 class="section-label" id="install-label">
+        <span data-i18n="es">Instalación</span>
+        <span data-i18n="en">Installation</span>
+      </h2>
+
+      <div class="install-tabs" role="tablist">
+        <button type="button" role="tab" aria-selected="true" aria-controls="panel-url" data-tab="url">
+          <span data-i18n="es">Vía URL</span>
+          <span data-i18n="en">Via URL</span>
+          <span class="recommended-pill" data-i18n="es">recomendado</span>
+          <span class="recommended-pill" data-i18n="en">recommended</span>
+        </button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="panel-zip" data-tab="zip">
+          <span data-i18n="es">Vía ZIP</span>
+          <span data-i18n="en">Via ZIP</span>
+        </button>
+      </div>
+
+      <div role="tabpanel" id="panel-url" class="tab-panel" data-tab-panel="url">
+        <div class="url-display">
+          <code id="repo-url">https://apoyotech.github.io/luc_repo</code>
+          <button type="button" class="copy-btn" data-copy-target="repo-url">
+            <svg class="copy-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            <span data-i18n="es" class="copy-label">Copiar</span>
+            <span data-i18n="en" class="copy-label">Copy</span>
+          </button>
+        </div>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">1</span>
+            <p class="step-text" data-i18n="es">En Kodi: <code>Ajustes → Sistema → Addons</code> y activa <code>Orígenes desconocidos</code>.</p>
+            <p class="step-text" data-i18n="en">In Kodi: <code>Settings → System → Add-ons</code> and enable <code>Unknown sources</code>.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">2</span>
+            <p class="step-text" data-i18n="es"><code>Ajustes → Administrador de archivos → Añadir fuente</code>, pega la URL de arriba y dale un nombre (por ejemplo, <code>luc_repo</code>).</p>
+            <p class="step-text" data-i18n="en"><code>Settings → File manager → Add source</code>, paste the URL above and give it a name (for example, <code>luc_repo</code>).</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">3</span>
+            <p class="step-text" data-i18n="es">Vuelve a Addons y elige <code>Instalar desde archivo zip</code>, abre la fuente que acabas de añadir y selecciona el ZIP del repositorio.</p>
+            <p class="step-text" data-i18n="en">Go back to Add-ons and choose <code>Install from zip file</code>, open the source you just added and select the repository ZIP.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">4</span>
+            <p class="step-text" data-i18n="es">Instala los addons desde <code>Instalar desde repositorio → luc_repo</code>.</p>
+            <p class="step-text" data-i18n="en">Install the add-ons from <code>Install from repository → luc_repo</code>.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div role="tabpanel" id="panel-zip" class="tab-panel" data-tab-panel="zip" hidden>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">1</span>
+            <p class="step-text" data-i18n="es">Descarga el ZIP desde el botón de la cabecera.</p>
+            <p class="step-text" data-i18n="en">Download the ZIP from the button at the top of the page.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">2</span>
+            <p class="step-text" data-i18n="es">En Kodi: <code>Ajustes → Sistema → Addons</code> y activa <code>Orígenes desconocidos</code>.</p>
+            <p class="step-text" data-i18n="en">In Kodi: <code>Settings → System → Add-ons</code> and enable <code>Unknown sources</code>.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">3</span>
+            <p class="step-text" data-i18n="es">Vuelve a Addons y elige <code>Instalar desde archivo zip</code>, selecciona el ZIP descargado.</p>
+            <p class="step-text" data-i18n="en">Go back to Add-ons and choose <code>Install from zip file</code>, then select the downloaded ZIP.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">4</span>
+            <p class="step-text" data-i18n="es">Instala los addons desde <code>Instalar desde repositorio → luc_repo</code>.</p>
+            <p class="step-text" data-i18n="en">Install the add-ons from <code>Install from repository → luc_repo</code>.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section aria-labelledby="support-label">
+      <h2 class="section-label" id="support-label">
+        <span data-i18n="es">Apoya el proyecto</span>
+        <span data-i18n="en">Support the project</span>
+      </h2>
+      <div class="support-card">
+        <div class="support-text">
+          <p class="support-title" data-i18n="es">¿Te gusta luc_kodi?</p>
+          <p class="support-title" data-i18n="en">Enjoying luc_kodi?</p>
+          <p class="support-desc" data-i18n="es">Es un proyecto personal mantenido en mi tiempo libre. Si te resulta útil, puedes invitarme a un café para apoyar el desarrollo.</p>
+          <p class="support-desc" data-i18n="en">This is a personal project maintained in my spare time. If you find it useful, you can buy me a coffee to support development.</p>
+        </div>
+        <a class="kofi-btn" href="https://ko-fi.com/luc64234" target="_blank" rel="noopener noreferrer">
+          <svg class="kofi-cup" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 8h13a3 3 0 0 1 0 6h-1v1a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z" stroke="#ffffff" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M16 11h1a1 1 0 0 1 0 2h-1" stroke="#ffffff" stroke-width="1.8"/>
+            <path d="M8 3c0 1.5 1 1.5 1 3M11 3c0 1.5 1 1.5 1 3" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span data-i18n="es">Invítame a un café</span>
+          <span data-i18n="en">Buy me a coffee</span>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <p data-i18n="es">Repositorio personal sin afiliación con proveedores de contenido. Todo el material proviene de fuentes públicas relacionadas con el ecosistema open source de Kodi. El propósito es de uso particular y aprendizaje.</p>
+      <p data-i18n="en">Personal repository with no affiliation to any content provider. All material comes from public sources within the Kodi open source ecosystem. Intended for personal and educational use.</p>
+      <p data-i18n="es">El autor no aloja ningún contenido ni se hace responsable del uso que se haga de las herramientas aquí distribuidas.</p>
+      <p data-i18n="en">The author does not host any content and takes no responsibility for the use of the tools distributed here.</p>
+      <p style="margin-top: 12px;"><a href="https://github.com/apoyotech/luc_repo" target="_blank" rel="noopener noreferrer">github.com/apoyotech/luc_repo</a></p>
+    </footer>
+  </main>
+
+  <script>
+    (function() {
+      const SUPPORTED = ['es', 'en'];
+      const STORAGE_KEY = 'luc_repo_lang';
+
+      const META = {
+        title: {
+          es: 'luc_repo · apoyotech',
+          en: 'luc_repo · apoyotech'
+        },
+        description: {
+          es: 'Repositorio de addons para Kodi con búsqueda IA, soporte Debrid completo y skins en 4K. Mantenido por apoyotech.',
+          en: 'Kodi add-on repository with AI-powered search, full Debrid integration and 4K skins. Maintained by apoyotech.'
+        }
+      };
+
+      function detectInitialLang() {
+        const params = new URLSearchParams(location.search);
+        const fromUrl = params.get('lang');
+        if (fromUrl && SUPPORTED.includes(fromUrl)) return fromUrl;
+
+        let stored = null;
+        try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+        if (stored && SUPPORTED.includes(stored)) return stored;
+
+        const browser = (navigator.language || 'es').slice(0, 2).toLowerCase();
+        return SUPPORTED.includes(browser) ? browser : 'en';
+      }
+
+      function setLang(lang) {
+        if (!SUPPORTED.includes(lang)) lang = 'es';
+
+        document.documentElement.lang = lang;
+        document.title = META.title[lang];
+
+        const desc = document.querySelector('meta[name="description"]');
+        if (desc) desc.setAttribute('content', META.description[lang]);
+
+        document.querySelectorAll('[data-lang-btn]').forEach(function(btn) {
+          btn.setAttribute('aria-pressed', btn.dataset.langBtn === lang ? 'true' : 'false');
+        });
+
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+
+        const url = new URL(location.href);
+        if (lang === 'es') {
+          url.searchParams.delete('lang');
+        } else {
+          url.searchParams.set('lang', lang);
+        }
+        history.replaceState({}, '', url);
+      }
+
+      function setupInstallTabs() {
+        const tabs = document.querySelectorAll('[data-tab]');
+        const panels = document.querySelectorAll('[data-tab-panel]');
+        tabs.forEach(function(tab) {
+          tab.addEventListener('click', function() {
+            const target = tab.dataset.tab;
+            tabs.forEach(function(t) {
+              t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+            });
+            panels.forEach(function(p) {
+              if (p.dataset.tabPanel === target) {
+                p.removeAttribute('hidden');
+              } else {
+                p.setAttribute('hidden', '');
+              }
+            });
+          });
+        });
+      }
+
+      function setupCopyButtons() {
+        const COPIED_LABEL = { es: '¡Copiado!', en: 'Copied!' };
+        document.querySelectorAll('[data-copy-target]').forEach(function(btn) {
+          btn.addEventListener('click', async function() {
+            const targetId = btn.dataset.copyTarget;
+            const target = document.getElementById(targetId);
+            if (!target) return;
+            const text = target.textContent.trim();
+
+            try {
+              await navigator.clipboard.writeText(text);
+            } catch (err) {
+              const ta = document.createElement('textarea');
+              ta.value = text;
+              ta.style.position = 'fixed';
+              ta.style.opacity = '0';
+              document.body.appendChild(ta);
+              ta.select();
+              try { document.execCommand('copy'); } catch (e) {}
+              document.body.removeChild(ta);
+            }
+
+            const lang = document.documentElement.lang === 'en' ? 'en' : 'es';
+            const labels = btn.querySelectorAll('.copy-label');
+            const original = [];
+            labels.forEach(function(l, i) {
+              original[i] = l.textContent;
+              l.textContent = COPIED_LABEL[l.getAttribute('data-i18n')] || COPIED_LABEL[lang];
+            });
+            btn.setAttribute('data-copied', 'true');
+
+            setTimeout(function() {
+              labels.forEach(function(l, i) { l.textContent = original[i]; });
+              btn.removeAttribute('data-copied');
+            }, 1800);
+          });
+        });
+      }
+
+      function init() {
+        setLang(detectInitialLang());
+        document.querySelectorAll('[data-lang-btn]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            setLang(btn.dataset.langBtn);
+          });
+        });
+        setupInstallTabs();
+        setupCopyButtons();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>
