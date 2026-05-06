@@ -16,9 +16,13 @@
   <meta property="og:description" content="Repositorio de addons para Kodi con búsqueda IA, soporte Debrid completo y skins en 4K.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://apoyotech.github.io/luc_repo/">
+  <meta property="og:image" content="https://apoyotech.github.io/luc_repo/assets/og-image.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="luc_repo · apoyotech">
   <meta name="twitter:description" content="Repositorio de addons para Kodi con búsqueda IA, soporte Debrid completo y skins en 4K.">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
 
   <title>luc_repo · apoyotech</title>
 
@@ -231,6 +235,8 @@
       border-radius: var(--radius-lg);
       padding: 18px 20px;
       transition: background 0.15s ease, border-color 0.15s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .addon-card:hover {
@@ -239,19 +245,23 @@
     }
 
     .addon-icon {
-      width: 36px;
-      height: 36px;
+      width: 48px;
+      height: 48px;
       border-radius: var(--radius-sm);
       background: var(--bg);
       border: 1px solid var(--border);
-      color: var(--text-primary);
+      margin-bottom: 14px;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 12px;
-      font-family: var(--font-mono);
-      font-size: 13px;
-      font-weight: 600;
+    }
+
+    .addon-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .addon-name {
@@ -271,8 +281,53 @@
       font-size: 13px;
       color: var(--text-secondary);
       line-height: 1.55;
-      margin: 0;
+      margin: 0 0 14px;
     }
+
+    /* Thumbnail strip inside addon card */
+    .thumb-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .thumb-btn {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0;
+      cursor: pointer;
+      overflow: hidden;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .thumb-btn:hover {
+      border-color: var(--text-tertiary);
+      transform: scale(1.02);
+    }
+
+    .thumb-btn:active { transform: scale(0.98); }
+
+    .thumb-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb-btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.3), transparent 50%);
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+
+    .thumb-btn:hover::after { opacity: 1; }
 
     /* Installation steps */
     .steps {
@@ -507,6 +562,123 @@
     }
     footer a:hover { color: var(--text-primary); }
 
+    /* === Lightbox === */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      padding: 24px;
+    }
+
+    .lightbox[data-open="true"] {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-img-wrap {
+      position: relative;
+      max-width: min(95vw, 1600px);
+      max-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 85vh;
+      width: auto;
+      height: auto;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      transition: opacity 0.15s ease;
+      display: block;
+    }
+
+    .lightbox-img.is-changing { opacity: 0; }
+
+    .lightbox-btn {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.15s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 2;
+    }
+
+    .lightbox-btn:hover {
+      background: rgba(0, 0, 0, 0.85);
+      transform: scale(1.05);
+    }
+
+    .lightbox-btn:active { transform: scale(0.95); }
+
+    .lightbox-btn svg {
+      width: 22px;
+      height: 22px;
+      stroke: #ffffff;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .lightbox-close {
+      top: 16px;
+      right: 16px;
+    }
+
+    .lightbox-prev { left: 16px; top: 50%; transform: translateY(-50%); }
+    .lightbox-next { right: 16px; top: 50%; transform: translateY(-50%); }
+    .lightbox-prev:hover { transform: translateY(-50%) scale(1.05); }
+    .lightbox-next:hover { transform: translateY(-50%) scale(1.05); }
+    .lightbox-prev:active { transform: translateY(-50%) scale(0.95); }
+    .lightbox-next:active { transform: translateY(-50%) scale(0.95); }
+
+    .lightbox-counter {
+      position: absolute;
+      top: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.85);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 6px 12px;
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 2;
+    }
+
+    body.lightbox-open { overflow: hidden; }
+
+    @media (max-width: 600px) {
+      .lightbox { padding: 12px; }
+      .lightbox-btn { width: 40px; height: 40px; }
+      .lightbox-prev { left: 8px; }
+      .lightbox-next { right: 8px; }
+      .lightbox-close { top: 10px; right: 10px; }
+      .lightbox-counter { top: 16px; font-size: 12px; padding: 5px 10px; }
+    }
+
     /* Focus styles for accessibility */
     a:focus-visible, button:focus-visible {
       outline: 2px solid var(--text-primary);
@@ -612,18 +784,44 @@
       </h2>
       <div class="addon-grid">
         <article class="addon-card">
-          <div class="addon-icon" aria-hidden="true">LK</div>
+          <div class="addon-icon">
+            <img src="assets/icon-luc_kodi.png" alt="luc_kodi" width="48" height="48" loading="lazy">
+          </div>
           <p class="addon-name">luc_kodi</p>
           <p class="addon-id">plugin.video</p>
           <p class="addon-desc" data-i18n="es">Plugin principal con scrapers, integración Debrid, Trakt, MDBList y búsqueda en lenguaje natural con Gemini.</p>
           <p class="addon-desc" data-i18n="en">Main plugin with scrapers, Debrid integration, Trakt, MDBList and natural-language search powered by Gemini.</p>
+          <div class="thumb-strip">
+            <button type="button" class="thumb-btn" data-gallery="luc_kodi" data-index="0">
+              <img src="assets/screenshots/luc_kodi-01.jpg" alt="" width="200" height="113" loading="lazy">
+            </button>
+            <button type="button" class="thumb-btn" data-gallery="luc_kodi" data-index="1">
+              <img src="assets/screenshots/luc_kodi-02.jpg" alt="" width="200" height="113" loading="lazy">
+            </button>
+            <button type="button" class="thumb-btn" data-gallery="luc_kodi" data-index="2">
+              <img src="assets/screenshots/luc_kodi-03.jpg" alt="" width="200" height="113" loading="lazy">
+            </button>
+          </div>
         </article>
         <article class="addon-card">
-          <div class="addon-icon" aria-hidden="true">WZ</div>
+          <div class="addon-icon">
+            <img src="assets/icon-luc_kodi-wizard.png" alt="luc_kodi.wizard" width="48" height="48" loading="lazy">
+          </div>
           <p class="addon-name">luc_kodi.wizard</p>
           <p class="addon-id">plugin.program</p>
           <p class="addon-desc" data-i18n="es">Asistente de instalación, configuración y mantenimiento con interfaz personalizada.</p>
           <p class="addon-desc" data-i18n="en">Installation, configuration and maintenance assistant with a custom interface.</p>
+          <div class="thumb-strip">
+            <button type="button" class="thumb-btn" data-gallery="wizard" data-index="0">
+              <img src="assets/screenshots/wizard-01.jpg" alt="" width="200" height="113" loading="lazy">
+            </button>
+            <button type="button" class="thumb-btn" data-gallery="wizard" data-index="1">
+              <img src="assets/screenshots/wizard-02.jpg" alt="" width="200" height="113" loading="lazy">
+            </button>
+            <button type="button" class="thumb-btn" data-gallery="wizard" data-index="2">
+              <img src="assets/screenshots/wizard-03.jpg" alt="" width="200" height="113" loading="lazy">
+            </button>
+          </div>
         </article>
       </div>
     </section>
@@ -743,6 +941,22 @@
     </footer>
   </main>
 
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galería de capturas" data-open="false">
+    <div class="lightbox-counter" id="lightbox-counter">1 / 3</div>
+    <button type="button" class="lightbox-btn lightbox-close" id="lightbox-close" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <button type="button" class="lightbox-btn lightbox-prev" id="lightbox-prev" aria-label="Anterior">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <button type="button" class="lightbox-btn lightbox-next" id="lightbox-next" aria-label="Siguiente">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <div class="lightbox-img-wrap">
+      <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    </div>
+  </div>
+
   <script>
     (function() {
       const SUPPORTED = ['es', 'en'];
@@ -855,6 +1069,134 @@
         });
       }
 
+      function setupLightbox() {
+        const galleries = {
+          luc_kodi: [
+            'assets/screenshots/luc_kodi-01.jpg',
+            'assets/screenshots/luc_kodi-02.jpg',
+            'assets/screenshots/luc_kodi-03.jpg'
+          ],
+          wizard: [
+            'assets/screenshots/wizard-01.jpg',
+            'assets/screenshots/wizard-02.jpg',
+            'assets/screenshots/wizard-03.jpg'
+          ]
+        };
+
+        const ALT_LABELS = {
+          luc_kodi: { es: 'Captura de luc_kodi', en: 'luc_kodi screenshot' },
+          wizard: { es: 'Captura de luc_kodi.wizard', en: 'luc_kodi.wizard screenshot' }
+        };
+
+        const lightbox = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        const counter = document.getElementById('lightbox-counter');
+        const closeBtn = document.getElementById('lightbox-close');
+        const prevBtn = document.getElementById('lightbox-prev');
+        const nextBtn = document.getElementById('lightbox-next');
+
+        if (!lightbox || !img) return;
+
+        let currentGallery = null;
+        let currentIndex = 0;
+        let lastFocused = null;
+
+        function render() {
+          const list = galleries[currentGallery];
+          if (!list) return;
+          const lang = document.documentElement.lang === 'en' ? 'en' : 'es';
+          img.classList.add('is-changing');
+          // Preload next/prev for smoothness
+          [list[(currentIndex + 1) % list.length], list[(currentIndex - 1 + list.length) % list.length]].forEach(function(src) {
+            const pre = new Image();
+            pre.src = src;
+          });
+          setTimeout(function() {
+            img.src = list[currentIndex];
+            img.alt = (ALT_LABELS[currentGallery] || {})[lang] || '';
+            counter.textContent = (currentIndex + 1) + ' / ' + list.length;
+            img.classList.remove('is-changing');
+          }, 80);
+        }
+
+        function open(galleryId, index) {
+          if (!galleries[galleryId]) return;
+          currentGallery = galleryId;
+          currentIndex = index || 0;
+          lastFocused = document.activeElement;
+          lightbox.setAttribute('data-open', 'true');
+          document.body.classList.add('lightbox-open');
+          render();
+          // Move focus into the dialog for keyboard users
+          setTimeout(function() { closeBtn.focus(); }, 50);
+        }
+
+        function close() {
+          lightbox.setAttribute('data-open', 'false');
+          document.body.classList.remove('lightbox-open');
+          if (lastFocused && typeof lastFocused.focus === 'function') {
+            lastFocused.focus();
+          }
+        }
+
+        function next() {
+          const list = galleries[currentGallery];
+          if (!list) return;
+          currentIndex = (currentIndex + 1) % list.length;
+          render();
+        }
+
+        function prev() {
+          const list = galleries[currentGallery];
+          if (!list) return;
+          currentIndex = (currentIndex - 1 + list.length) % list.length;
+          render();
+        }
+
+        // Wire up thumbnail buttons
+        document.querySelectorAll('[data-gallery]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            open(btn.dataset.gallery, parseInt(btn.dataset.index, 10) || 0);
+          });
+        });
+
+        closeBtn.addEventListener('click', close);
+        prevBtn.addEventListener('click', prev);
+        nextBtn.addEventListener('click', next);
+
+        // Click on backdrop (but not on image or controls) closes
+        lightbox.addEventListener('click', function(e) {
+          if (e.target === lightbox) close();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+          if (lightbox.getAttribute('data-open') !== 'true') return;
+          if (e.key === 'Escape') { e.preventDefault(); close(); }
+          else if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+          else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+        });
+
+        // Touch swipe on mobile
+        let touchStartX = 0;
+        let touchStartY = 0;
+        lightbox.addEventListener('touchstart', function(e) {
+          if (e.touches.length !== 1) return;
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', function(e) {
+          if (e.changedTouches.length !== 1) return;
+          const dx = e.changedTouches[0].clientX - touchStartX;
+          const dy = e.changedTouches[0].clientY - touchStartY;
+          // Only treat as swipe if horizontal motion clearly dominates and is significant
+          if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+            if (dx < 0) next(); else prev();
+          }
+        }, { passive: true });
+      }
+
       function init() {
         setLang(detectInitialLang());
         document.querySelectorAll('[data-lang-btn]').forEach(function(btn) {
@@ -864,6 +1206,7 @@
         });
         setupInstallTabs();
         setupCopyButtons();
+        setupLightbox();
       }
 
       if (document.readyState === 'loading') {
