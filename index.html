@@ -92,7 +92,10 @@
     main {
       max-width: 680px;
       margin: 0 auto;
-      padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 5vw, 2rem);
+      padding-top: clamp(2rem, 6vw, 4rem);
+      padding-bottom: max(clamp(2rem, 6vw, 4rem), env(safe-area-inset-bottom, 0));
+      padding-left: max(clamp(1.25rem, 5vw, 2rem), env(safe-area-inset-left, 0));
+      padding-right: max(clamp(1.25rem, 5vw, 2rem), env(safe-area-inset-right, 0));
       position: relative;
     }
 
@@ -508,6 +511,76 @@
     a:focus-visible, button:focus-visible {
       outline: 2px solid var(--text-primary);
       outline-offset: 2px;
+    }
+
+    /* === Mobile: ≤ 600px — tight phones and narrow viewports === */
+    @media (max-width: 600px) {
+      .addon-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .url-display {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 8px;
+      }
+
+      .url-display code {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 9px 12px;
+        text-align: center;
+      }
+
+      .copy-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 9px 12px;
+      }
+
+      .install-tabs {
+        display: flex;
+        width: 100%;
+      }
+
+      .install-tabs button {
+        flex: 1;
+        justify-content: center;
+        padding: 8px 10px;
+      }
+
+      .support-card {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .kofi-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+      }
+
+      .cta-primary {
+        padding: 12px 22px;
+      }
+    }
+
+    /* === Large desktops: ≥ 1280px — give content slightly more room === */
+    @media (min-width: 1280px) {
+      main {
+        max-width: 760px;
+      }
+    }
+
+    /* Respect users who prefer reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
