@@ -245,11 +245,13 @@
       border-radius: var(--radius-lg);
       padding: 18px 20px;
       cursor: pointer;
+      max-height: 1200px;
       transition:
         background 0.15s ease,
         border-color 0.2s ease,
         opacity 0.3s ease,
-        padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       flex-direction: column;
       min-width: 0;
@@ -277,6 +279,7 @@
       padding-top: 0;
       padding-bottom: 0;
       border-width: 0;
+      max-height: 0;
       overflow: hidden;
     }
 
@@ -337,7 +340,8 @@
       transform: scale(1);
     }
 
-    /* When expanded, give thumb strip a tiny bit more breathing room */
+    /* When expanded, give thumb strip a tiny bit more breathing room
+       and cancel the auto margin so the card hugs its content (no empty space) */
     .addon-grid[data-expanded="luc_kodi"] [data-card="luc_kodi"] .thumb-strip,
     .addon-grid[data-expanded="wizard"] [data-card="wizard"] .thumb-strip {
       margin-top: 16px;
