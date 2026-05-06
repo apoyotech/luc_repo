@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Repositorio de addons para Kodi con búsqueda IA, soporte Debrid completo y skins en 4K. Mantenido por apoyotech.">
   <meta name="author" content="apoyotech">
-  <meta name="theme-color" content="#0c0c0c" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#212121" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 
   <link rel="alternate" hreflang="es" href="https://apoyotech.github.io/luc_repo/">
@@ -35,15 +35,15 @@
       color-scheme: dark light;
 
       /* Dark theme (default) */
-      --bg: #0c0c0c;
-      --surface: #161616;
-      --surface-hover: #1c1c1c;
-      --border: #262626;
+      --bg: #212121;
+      --surface: #2a2a2a;
+      --surface-hover: #303030;
+      --border: #3a3a3a;
       --text-primary: #fafafa;
       --text-secondary: #a3a3a3;
       --text-tertiary: #737373;
       --cta-bg: #fafafa;
-      --cta-text: #0c0c0c;
+      --cta-text: #212121;
       --code-bg: #1f1f1f;
       --code-text: #e5e5e5;
 
@@ -240,33 +240,61 @@
 
     .addon-card {
       position: relative;
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: linear-gradient(137deg, #ff00b3 0%, #00d4ff 100%);
       border-radius: var(--radius-lg);
-      padding: 18px 20px;
+      padding: 0;
       cursor: pointer;
       max-height: 1200px;
       transition:
-        background 0.15s ease,
-        border-color 0.2s ease,
         opacity 0.3s ease,
-        padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-        max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+        filter 0.45s ease;
       display: flex;
       flex-direction: column;
       min-width: 0;
     }
 
-    .addon-card:hover {
+    /* Inner surface — covers the gradient leaving a 2px frame visible */
+    .addon-card::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      background: var(--surface);
+      border-radius: calc(var(--radius-lg) - 2px);
+      z-index: 0;
+      transition: background 0.15s ease;
+    }
+
+    /* All card content sits above the inner surface overlay */
+    .addon-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Inner padding — applied to direct children rather than the card itself,
+       since the gradient background needs to extend to the edge */
+    .addon-card > .addon-icon { margin-top: 18px; margin-left: 20px; }
+    .addon-card > .addon-name,
+    .addon-card > .addon-id,
+    .addon-card > .addon-desc { margin-left: 20px; margin-right: 20px; }
+    .addon-card > .thumb-strip { margin-left: 20px; margin-right: 20px; margin-bottom: 18px; }
+    .addon-card > .card-collapse { top: 12px; right: 12px; }
+
+    .addon-card:hover::after {
       background: var(--surface-hover);
-      border-color: var(--text-tertiary);
     }
 
     /* The active (expanded) card */
     .addon-grid[data-expanded="luc_kodi"] [data-card="luc_kodi"],
     .addon-grid[data-expanded="wizard"] [data-card="wizard"] {
       cursor: default;
-      border-color: var(--text-tertiary);
+    }
+
+    /* Glowing halo around the expanded card — uses drop-shadow on the card
+       so the gradient border itself emits the light. csozidev's pattern. */
+    .addon-grid[data-expanded="luc_kodi"] [data-card="luc_kodi"],
+    .addon-grid[data-expanded="wizard"] [data-card="wizard"] {
+      filter: drop-shadow(0 0 30px rgba(209, 38, 197, 0.7));
     }
 
     /* The inactive (collapsed) card — shrink to nothing, fade out */
@@ -274,11 +302,6 @@
     .addon-grid[data-expanded="wizard"] [data-card="luc_kodi"] {
       opacity: 0;
       pointer-events: none;
-      padding-left: 0;
-      padding-right: 0;
-      padding-top: 0;
-      padding-bottom: 0;
-      border-width: 0;
       max-height: 0;
       overflow: hidden;
     }
