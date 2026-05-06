@@ -227,21 +227,121 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 12px;
+      transition: grid-template-columns 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .addon-grid[data-expanded="luc_kodi"] {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0fr);
+    }
+
+    .addon-grid[data-expanded="wizard"] {
+      grid-template-columns: minmax(0, 0fr) minmax(0, 1fr);
     }
 
     .addon-card {
+      position: relative;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 18px 20px;
-      transition: background 0.15s ease, border-color 0.15s ease;
+      cursor: pointer;
+      transition:
+        background 0.15s ease,
+        border-color 0.2s ease,
+        opacity 0.3s ease,
+        padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       flex-direction: column;
+      min-width: 0;
     }
 
     .addon-card:hover {
       background: var(--surface-hover);
       border-color: var(--text-tertiary);
+    }
+
+    /* The active (expanded) card */
+    .addon-grid[data-expanded="luc_kodi"] [data-card="luc_kodi"],
+    .addon-grid[data-expanded="wizard"] [data-card="wizard"] {
+      cursor: default;
+      border-color: var(--text-tertiary);
+    }
+
+    /* The inactive (collapsed) card — shrink to nothing, fade out */
+    .addon-grid[data-expanded="luc_kodi"] [data-card="wizard"],
+    .addon-grid[data-expanded="wizard"] [data-card="luc_kodi"] {
+      opacity: 0;
+      pointer-events: none;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      border-width: 0;
+      overflow: hidden;
+    }
+
+    /* On mobile, instead of side-by-side collapse, hide the inactive card */
+    @media (max-width: 600px) {
+      .addon-grid[data-expanded] {
+        grid-template-columns: 1fr;
+      }
+      .addon-grid[data-expanded="luc_kodi"] [data-card="wizard"],
+      .addon-grid[data-expanded="wizard"] [data-card="luc_kodi"] {
+        display: none;
+      }
+    }
+
+    /* Collapse button — visible only when card is expanded */
+    .card-collapse {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.8);
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        background 0.15s ease;
+      z-index: 2;
+    }
+
+    .card-collapse:hover {
+      background: var(--surface-hover);
+      transform: scale(1);
+    }
+
+    .card-collapse svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    .addon-grid[data-expanded="luc_kodi"] [data-card="luc_kodi"] .card-collapse,
+    .addon-grid[data-expanded="wizard"] [data-card="wizard"] .card-collapse {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+
+    /* When expanded, give thumb strip a tiny bit more breathing room */
+    .addon-grid[data-expanded="luc_kodi"] [data-card="luc_kodi"] .thumb-strip,
+    .addon-grid[data-expanded="wizard"] [data-card="wizard"] .thumb-strip {
+      margin-top: 16px;
+      gap: 8px;
     }
 
     .addon-icon {
@@ -782,8 +882,11 @@
         <span data-i18n="es">Addons incluidos</span>
         <span data-i18n="en">Included add-ons</span>
       </h2>
-      <div class="addon-grid">
-        <article class="addon-card">
+      <div class="addon-grid" id="addon-grid">
+        <article class="addon-card" data-card="luc_kodi">
+          <button type="button" class="card-collapse" data-action="collapse" aria-label="Cerrar vista ampliada">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
           <div class="addon-icon">
             <img src="assets/icon-luc_kodi.png" alt="luc_kodi" width="48" height="48" loading="lazy">
           </div>
@@ -803,7 +906,10 @@
             </button>
           </div>
         </article>
-        <article class="addon-card">
+        <article class="addon-card" data-card="wizard">
+          <button type="button" class="card-collapse" data-action="collapse" aria-label="Cerrar vista ampliada">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
           <div class="addon-icon">
             <img src="assets/icon-luc_kodi-wizard.png" alt="luc_kodi.wizard" width="48" height="48" loading="lazy">
           </div>
@@ -1197,6 +1303,49 @@
         }, { passive: true });
       }
 
+      function setupCardExpansion() {
+        const grid = document.getElementById('addon-grid');
+        const lightbox = document.getElementById('lightbox');
+        if (!grid) return;
+
+        function expand(cardId) {
+          grid.setAttribute('data-expanded', cardId);
+        }
+
+        function collapse() {
+          grid.removeAttribute('data-expanded');
+        }
+
+        // Click on a card body expands it; click on a button inside the card does its own thing
+        grid.querySelectorAll('.addon-card').forEach(function(card) {
+          card.addEventListener('click', function(e) {
+            // Don't expand if click came from any button (thumb, collapse, etc.)
+            if (e.target.closest('button')) return;
+            // Don't re-expand if already expanded
+            if (grid.getAttribute('data-expanded') === card.dataset.card) return;
+            expand(card.dataset.card);
+          });
+        });
+
+        // Collapse buttons
+        grid.querySelectorAll('[data-action="collapse"]').forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            collapse();
+          });
+        });
+
+        // ESC collapses (but only if lightbox is not open — lightbox handles its own ESC)
+        document.addEventListener('keydown', function(e) {
+          if (e.key !== 'Escape') return;
+          if (lightbox && lightbox.getAttribute('data-open') === 'true') return;
+          if (grid.hasAttribute('data-expanded')) {
+            e.preventDefault();
+            collapse();
+          }
+        });
+      }
+
       function init() {
         setLang(detectInitialLang());
         document.querySelectorAll('[data-lang-btn]').forEach(function(btn) {
@@ -1207,6 +1356,7 @@
         setupInstallTabs();
         setupCopyButtons();
         setupLightbox();
+        setupCardExpansion();
       }
 
       if (document.readyState === 'loading') {
