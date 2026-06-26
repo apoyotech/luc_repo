@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
 
-<addon id="repository.luc_repo" name="[B][COLOR ff00fa9a]luc_[/COLOR]repo[/B]" version="1.0.11" provider-name="[COLOR fffdb515]apoyotech[/COLOR]">
+<addon id="repository.luc_repo" name="[B][COLOR ff00fa9a]luc_[/COLOR]repo[/B]" version="1.0.12" provider-name="[COLOR fffdb515]apoyotech[/COLOR]">
    <extension point="xbmc.addon.repository" name="luc_repo">
 		<dir>
 			<info compressed="false">https://raw.githubusercontent.com/apoyotech/luc_repo/main/addons.xml</info>
@@ -23,9 +23,7 @@
 </addon>
 
 
-
-
-<addon id="plugin.video.luc_kodi" name="[B][COLOR ff00fa9a]luc_[/COLOR]kodi[/B]" provider-name="[COLOR fffdb515]apoyotech[/COLOR]" version="1.0.39">
+<addon id="plugin.video.luc_kodi" name="[B][COLOR ff00fa9a]luc_[/COLOR]kodi[/B]" provider-name="[COLOR fffdb515]apoyotech[/COLOR]" version="1.0.40">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" />
 		<import addon="script.module.requests" />
@@ -39,21 +37,23 @@
 	<extension point="xbmc.python.module" library="resources/lib/" />
 	<extension point="xbmc.addon.metadata">
 		<reuselanguageinvoker>true</reuselanguageinvoker>
-		<summary lang="en">We do not host any of the contents</summary>
-		<description lang="en">[COLOR ff00fa9a]The author of this addon does not host any of the content in this addon and takes no responsibility for content found[/COLOR]</description>
+		<summary lang="en">Front-end for third-party torrent indexers and debrid services that you configure with your own accounts. Hosts no content and provides no links.</summary>
+		<description lang="en">[COLOR ffa9d3c5]luc_kodi is a front-end (user interface) for third-party services that you configure with your own accounts: debrid services such as Real-Debrid, AllDebrid, Premiumize or TorBox, and torrent indexers. The add-on does not host, store, upload or distribute any media, and it does not embed or include any links to content. Every source is located and resolved at run time by the third-party services you have configured with your own credentials. The author takes no responsibility for the content those services return, or for how the add-on is used.[/COLOR]</description>
 		<platform>all</platform>
 		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
 		<forum />
-		<disclaimer lang="en">[COLOR ffc75453]This addon simply searches websites for content. Use at your own risk![/COLOR]</disclaimer>
-	<assets>
+		<disclaimer lang="en">[COLOR ffc75453]This add-on hosts no content and includes no links of its own. It only queries third-party services that you set up with your own accounts. You are solely responsible for the sources you choose to enable and for complying with the copyright laws of your country. Use at your own risk.[/COLOR]</disclaimer>
+	  <assets>
 		<icon>icon.png</icon>
 		<fanart>fanart.jpg</fanart>
 		<screenshot>resources/screenshot1.jpg</screenshot>
         <screenshot>resources/screenshot2.jpg</screenshot>
         <screenshot>resources/screenshot3.jpg</screenshot>
-    </assets>
+      </assets>
     </extension>
 </addon>
+
+
 
 <addon id="plugin.program.luc_kodi.wizard" name="[B][COLOR ff00fa9a]luc_[/COLOR][/B]kodi.wizard" version="2.0.40" provider-name="[COLOR fffdb515]apoyotech[/COLOR]">	
 	<requires>
@@ -88,29 +88,7 @@
 </addon>
 
 
-<addon id="repository.angelitto" name="[B][COLOR FFC45AEC]Angelitto Repository[/COLOR][/B]" version="1.0.2" provider-name="[B][COLOR FF6AFB92]angelitto[/COLOR][/B]">
-    <extension point="xbmc.addon.repository" name="Angelitto Repository">
-        <dir>
-            <info compressed="false">https://raw.githubusercontent.com/angelitto2005/repository.angelitto/main/repo/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/angelitto2005/repository.angelitto/main/repo/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/angelitto2005/repository.angelitto/main/repo/zips/</datadir>
-        </dir>
-        <dir>
-            <info compressed="false">https://raw.githubusercontent.com/angelitto2005/repository.angelitto/main/all/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/angelitto2005/repository.angelitto/main/all/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/angelitto2005/repository.angelitto/main/all/zips/</datadir>
-        </dir>
-    </extension>
-    <extension point="xbmc.addon.metadata">
-        <summary>Welcome to Angelitto's Repo</summary>
-        <description>[B][COLOR FFEB5406]Angelitto's Kodi Repository[/COLOR][/B]</description>
-        <platform>all</platform>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart></fanart>
-        </assets>
-    </extension>
-</addon>
+
 
 <addon id="service.luc_kodi.tmdbextendedinfo"
        name="service.luc_kodi.tmdbextendedinfo"
@@ -120,11 +98,8 @@
         <import addon="xbmc.python" version="3.0.1" />
         <import addon="script.module.requests" />
     </requires>
-
     <extension point="xbmc.service" library="service.py" />
-
     <extension point="xbmc.python.script" library="script_entry.py" />
-
     <extension point="kodi.context.item">
         <menu id="kodi.core.main">
             <item library="context_extended.py">
@@ -138,7 +113,6 @@
             </item>
         </menu>
     </extension>
-
     <extension point="xbmc.addon.metadata">
         <summary lang="en">[COLOR ffc75453]TMDb Extended Info context menu &amp; dialogs for plugin.video.luc_kodi[/COLOR]</summary>
         <description lang="en">Adds a context-menu entry that opens an Extended Info dialog (cast, videos, images, seasons/episodes).</description>
