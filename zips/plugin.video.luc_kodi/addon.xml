@@ -17,7 +17,6 @@
 		<description lang="en">[COLOR ffa9d3c5]luc_kodi is a front-end (user interface) for third-party services that you configure with your own accounts: debrid services such as Real-Debrid, AllDebrid, Premiumize or TorBox, and torrent indexers. The add-on does not host, store, upload or distribute any media, and it does not embed or include any links to content. Every source is located and resolved at run time by the third-party services you have configured with your own credentials. The author takes no responsibility for the content those services return, or for how the add-on is used.[/COLOR]</description>
 		<platform>all</platform>
 		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
-		<forum />
 		<disclaimer lang="en">[COLOR ffc75453]This add-on hosts no content and includes no links of its own. It only queries third-party services that you set up with your own accounts. You are solely responsible for the sources you choose to enable and for complying with the copyright laws of your country. Use at your own risk.[/COLOR]</disclaimer>
 	  <assets>
 		<icon>icon.png</icon>
