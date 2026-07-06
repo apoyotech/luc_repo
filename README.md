@@ -27,7 +27,7 @@ own accounts and configuration, it returns no playable sources.
 ## Installation
 
 1. In Kodi, go to **Settings → File manager → Add source**.
-2. Enter the repository URL `https://apoyotech.github.io/luc_repo` and give it a name.
+2. Enter the repository URL `https://apoyotech.github.io/luc_repo/repo` and give it a name.
 3. Go to **Add-ons → Install from zip file** and install the repository zip.
 4. Go to **Install from repository → (repo name) → Video add-ons → luc_kodi → Install**.
 
