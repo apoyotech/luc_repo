@@ -1,9 +1,9 @@
 {
   "addon": "plugin.video.luc_kodi",
-  "version": "1.0.78",
-  "zip": "zips/plugin.video.luc_kodi/plugin.video.luc_kodi-1.0.78.zip",
-  "sha256": "e7e24bff9807a4410030410006dd85340cd2a5b99a147bd397bcd53b43435470",
-  "size": 9732495,
+  "version": "1.0.79",
+  "zip": "zips/plugin.video.luc_kodi/plugin.video.luc_kodi-1.0.79.zip",
+  "sha256": "bbc294dbaa976146cb0e2e56a93e1416e047e5518885f0d7646b359cde9db97a",
+  "size": 9734324,
   "published": "2026-09-08",
-  "changelog": "[B][COLOR ff00fa9a]Version 1.0.78[/COLOR][/B]\n[COLOR fffdb515]Test release[/COLOR]\n-Identical to 1.0.77 apart from this entry. Published only to exercise the new update channel end to end."
+  "changelog": "[B][COLOR ff00fa9a]Version 1.0.79[/COLOR][/B]\n[COLOR fffdb515]Update channel: fixes from the first live run[/COLOR]\n-The update could be offered twice at once. The settings button and the background check run in separate processes, so neither could see that the other was already asking. They now share a lock, and the second one steps aside instead of opening a rival window.\n-The installed version is now read from the add-on file on disk rather than from the copy each process loaded at start-up. A window opened before an update finished used to still believe it was on the older version, and could install the same release a second time.\n-Closing the changelog no longer re-offers the update without looking again. If it was installed while you were reading, you are told you are up to date instead.\n-One last check runs immediately before anything is touched, so an update that is no longer newer is never installed.\n-The background check waits three minutes after Kodi starts instead of thirty seconds, and holds off entirely while something is playing or another window is open. The first run interrupted a changelog that was open on screen.\n-The service now looks for Kodi's shutdown request before starting a check, so it is not the reason Kodi has to force it closed."
 }
