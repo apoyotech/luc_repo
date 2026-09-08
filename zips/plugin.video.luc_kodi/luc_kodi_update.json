@@ -1,0 +1,9 @@
+{
+  "addon": "plugin.video.luc_kodi",
+  "version": "1.0.78",
+  "zip": "zips/plugin.video.luc_kodi/plugin.video.luc_kodi-1.0.78.zip",
+  "sha256": "e7e24bff9807a4410030410006dd85340cd2a5b99a147bd397bcd53b43435470",
+  "size": 9732495,
+  "published": "2026-09-08",
+  "changelog": "[B][COLOR ff00fa9a]Version 1.0.78[/COLOR][/B]\n[COLOR fffdb515]Test release[/COLOR]\n-Identical to 1.0.77 apart from this entry. Published only to exercise the new update channel end to end."
+}
