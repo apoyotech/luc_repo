@@ -1,0 +1,9 @@
+{
+  "addon": "plugin.video.luc_kodi",
+  "version": "1.0.78",
+  "zip": "zips/plugin.video.luc_kodi/plugin.video.luc_kodi-1.0.78.zip",
+  "sha256": "cb14d5f17bc5ee843ec1075a4c106e1470f6d188c9e115197827ab9aac1429e6",
+  "size": 9733562,
+  "published": "9 September 2026",
+  "changelog": "[B][COLOR ff00fa9a]Version 1.0.78[/COLOR][/B]\n[COLOR fffdb515]The service no longer crashes on the way out[/COLOR]\n-If Kodi asked the add-on to stop before its service had finished starting - which is what happens when Kodi is shutting down, and also during the add-on reload the new update channel performs - the shutdown routine referred to threads that had never been created, and the service ended with an error in the log instead of quietly.\n-The handles are now in place before anything starts, so the shutdown path is the same whether the service ran for hours or for no time at all.\n[COLOR fffdb515]Credentials stay out of sight[/COLOR]\n-The TMDb authorisation dialog printed your password on the screen next to your username. It now confirms the account by username only.\n-The TMDb and AIOStreams password fields are masked in settings, like every other password field.\n-Easynews attaches its sign-in to the end of the playback address rather than sending it as a header, and that address was written to the log in full when debug logging was on. It is now masked before it is written, as are any credentials carried in the address itself.\n[COLOR fffdb515]Also[/COLOR]\n-AllDebrid stopped writing its access details to two settings names the add-on no longer declares. Kodi discarded those writes anyway, and each one threw away the settings cache on the way past. Reading them, so an old install can still be migrated, is unchanged."
+}
