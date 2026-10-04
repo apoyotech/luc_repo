@@ -1,9 +1,9 @@
 {
   "addon": "plugin.video.luc_kodi",
-  "version": "1.0.97",
-  "zip": "zips/plugin.video.luc_kodi/plugin.video.luc_kodi-1.0.97.zip",
-  "sha256": "219a99d55fbae17405404ac4ba083f7ca989f72851d7a415d502b15c0b08f870",
-  "size": 12537303,
-  "published": "2026-09-30",
-  "changelog": "[COLOR fffdb515]AI Search (Gemini)[/COLOR]\n-Up to five Gemini API keys (before, three). Keys from different Google projects add up their free quota and are used in turn.\n-New model Gemini 3.8 Flash, and faster answers from the Flash models.\n-Works with the new Google keys (starting with AQ.). Old AIza keys that Google has blocked now show a clear message asking you to create a new one.\n-If one key is refused, the next one is tried instead of stopping the search.\n-The Gemini 2.5 models, no longer open to new Google projects, come last in the fallback and are skipped when your keys cannot use them.\n-Keys pasted with extra spaces now work, and exported logs hide Gemini keys.\n[COLOR fffdb515]Settings[/COLOR]\n-Every row in Accounts shows the name of its service (Authorize Real-Debrid, Enable TorBox, Easynews Username...), so the page is clear in any skin.\n[COLOR fffdb515]Fixes[/COLOR]\n-Tools > Show Changelog could appear without a name."
+  "version": "1.0.98",
+  "zip": "zips/plugin.video.luc_kodi/plugin.video.luc_kodi-1.0.98.zip",
+  "sha256": "cc048f25af0189209d360f59f71c77bab87fe2bb49f826b5e54e720ab6c4bced",
+  "size": 12542344,
+  "published": "2026-10-04",
+  "changelog": "[COLOR fffdb515]Next episode (PlayNext)[/COLOR]\n-The next episode popup now appears over the end credits while the episode is still playing, not after it has stopped. It shows up when the credits start, if TheIntroDB knows them for that episode, or a number of seconds before the end (30 by default).\n-When the countdown ends, luc_kodi now does what Default action says: play the next episode, stop playback, or pause and wait for your choice. Before, the popup always closed without doing anything.\n-With Play next episode selected, Auto-Play has the focus, so OK on the remote starts the next episode at once.\n-The countdown follows the video: it stops while you pause, and the popup closes if you jump to another video. Stop on the remote stops playback and does not start the next episode.\n-The popup never appears before 85% of the episode, so moving on from it always counts as watched in Kodi, Trakt, SIMKL, MDBList and PunchPlay.\n-Credits that end before the episode does (a post-credits scene) are ignored, so that scene is not skipped.\n-If you stop an episode yourself near the end, the popup still asks, but the countdown only closes it: a new episode never starts on its own after a manual stop.\n[COLOR fffdb515]Settings[/COLOR]\n-TV Shows > Continuous Episode Playback: new Show the popup this many seconds before the end (10 to 120) and Show it when the end credits start. Default action now reads Play next episode, Stop playback, or Pause and wait for me.\n[COLOR fffdb515]Fixes[/COLOR]\n-Choose Source no longer appears cut off in the next episode popup on 1080p screens."
 }
