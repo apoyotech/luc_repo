@@ -1,9 +1,9 @@
 {
   "addon": "plugin.video.luc_kodi",
-  "version": "2.0.05",
-  "zip": "zips/plugin.video.luc_kodi/plugin.video.luc_kodi-2.0.05.zip",
-  "sha256": "d5a284c6e54f67e8191dad21ccf4b6073ee3871c8bcef7c6d3ff6db727c5c0cf",
-  "size": 15767148,
-  "published": "2026-10-13",
-  "changelog": "[B][COLOR ff00fa9a]Version 2.0.05[/COLOR][/B]\n[COLOR fffdb515]TorBox: faster cache check[/COLOR]\n-Hashes are checked in groups of 100, all at the same time, as TorBox recommends. A busy search used to send them all in one request, which was slow and could miss cached sources.\n-Cache results are kept for 30 minutes, so searching the same title again is instant.\n-Sources whose hash comes in capitals or in base32, such as some from PirateBay and Knaben, play again. They showed as cached but were dropped when you picked them.\n[COLOR fffdb515]TorBox: quicker playback[/COLOR]\n-Picking a source takes one request less: the extra cache check before adding the torrent is gone, because TorBox already refuses anything that is not cached.\n-Waits only happen when TorBox asks to slow down. Any other error no longer costs about 9 seconds per source in autoplay.\n-The file list of a torrent you just added is always read fresh, with one more try if it is not ready yet.\n-A torrent with no playable file is removed from your TorBox account instead of staying there.\n-Next episode in autoplay no longer waits 2 seconds before it starts resolving.\n[COLOR fffdb515]TorBox: episodes and season packs[/COLOR]\n-Season packs that do not contain the episode you asked for are left out of the source list, instead of failing when you play them.\n[COLOR fffdb515]TorBox: Usenet[/COLOR]\n-Usenet items resolve with fresh data and wait 10 seconds at most instead of 22.\n-Use Usenet Services (NZB) stays off when you turn it off. It used to switch itself back on at every search."
+  "version": "2.0.06",
+  "zip": "zips/plugin.video.luc_kodi/plugin.video.luc_kodi-2.0.06.zip",
+  "sha256": "a237fb1df1e576a1095a9e7deb29939aaaedfbe4e25de74800ccb87db2609dd1",
+  "size": 14372827,
+  "published": "2026-10-14",
+  "changelog": "[B][COLOR ff00fa9a]Version 2.0.06[/COLOR][/B]\n-New icons added"
 }
