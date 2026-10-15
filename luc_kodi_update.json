@@ -1,9 +1,9 @@
 {
   "addon": "plugin.video.luc_kodi",
-  "version": "2.0.06",
-  "zip": "zips/plugin.video.luc_kodi/plugin.video.luc_kodi-2.0.06.zip",
-  "sha256": "a237fb1df1e576a1095a9e7deb29939aaaedfbe4e25de74800ccb87db2609dd1",
-  "size": 14372827,
-  "published": "2026-10-14",
-  "changelog": "[B][COLOR ff00fa9a]Version 2.0.06[/COLOR][/B]\n-New icons added"
+  "version": "2.0.07",
+  "zip": "zips/plugin.video.luc_kodi/plugin.video.luc_kodi-2.0.07.zip",
+  "sha256": "a92abbfb7163d037854891d879037223697e6c784c1e87d3d5f3e43506ad9727",
+  "size": 14371174,
+  "published": "2026-10-15",
+  "changelog": "[B][COLOR ff00fa9a]Version 2.0.07[/COLOR][/B]\n-New icons added"
 }
