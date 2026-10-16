@@ -1,9 +1,9 @@
 {
   "addon": "plugin.video.luc_kodi",
-  "version": "2.0.07",
-  "zip": "zips/plugin.video.luc_kodi/plugin.video.luc_kodi-2.0.07.zip",
-  "sha256": "a92abbfb7163d037854891d879037223697e6c784c1e87d3d5f3e43506ad9727",
-  "size": 14371174,
-  "published": "2026-10-15",
-  "changelog": "[B][COLOR ff00fa9a]Version 2.0.07[/COLOR][/B]\n-New icons added"
+  "version": "2.0.08",
+  "zip": "zips/plugin.video.luc_kodi/plugin.video.luc_kodi-2.0.08.zip",
+  "sha256": "bb101a84c7054f93878cbfca9d953e70a9222447abaee6b4fafd8a858bda1291",
+  "size": 14390884,
+  "published": "2026-10-16",
+  "changelog": "[B][COLOR ff00fa9a]Version 2.0.08[/COLOR][/B]\n[COLOR fffdb515]Languages[/COLOR]\n-Each language in Movies and TV Shows now opens four lists: Popular, New (last 12 months), Top rated and Everything.\n-Popular, New and Top rated show what the streaming services offer, with no minimum of votes. Top rated keeps one so the rating means something. Everything shows every title in that language, most popular first.\n-More streaming services feed these lists: Netflix, Prime Video, Disney+, HBO Max, Hulu, Apple TV+, Peacock, Paramount+, MUBI, Kanopy, Vix, OnDemandKorea, AMC+, Starz, MGM+, Shudder, Tubi, Pluto TV, The Roku Channel and Plex.\n-Other categories keep their own minimum of votes.\n[COLOR fffdb515]New provider: langhelper[/COLOR]\n-A search helper for movies and TV shows opened from Languages, in every language except English. Anime is left out, and every other search stays as it was.\n-It searches by every title TMDb has (original, local and romanised), with or without accents, and in Chinese, Japanese, Korean, Cyrillic or Arabic script too.\n-It understands how these releases number episodes: S01E05, EP05, Temporada 2, Staffel 2, 05. Bölüm, 第05集, 5화, 5 серия, and numbers counted from the first episode.\n-It keeps releases in the original language and leaves out dubs into a third language, adult releases and packs of several seasons.\n-Its season packs play even when the files inside are not named S01E05.\n-It has its own switch and Min Seeders in Providers > Torrents. A show found in Languages keeps it when you carry on from Progress or the next episode.\n[COLOR fffdb515]Fixes[/COLOR]\n-Caching an uncached source to TorBox works again, and TorBox accepts it even with \"only add downloads that are already cached\" on.\n-Cache to Cloud from the uncached list adds season packs as packs.\n-Premiumize download links no longer appear whole in kodi.log."
 }
