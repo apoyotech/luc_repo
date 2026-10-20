@@ -1,9 +1,9 @@
 {
   "addon": "plugin.video.luc_kodi",
-  "version": "2.0.11",
-  "zip": "zips/plugin.video.luc_kodi/plugin.video.luc_kodi-2.0.11.zip",
-  "sha256": "13629899aa30f76e86a93b37f036c78e974b170c2d856ded3cbf0ad30727db95",
-  "size": 14726281,
-  "published": "2026-10-19",
-  "changelog": "[B][COLOR ff00fa9a]Version 2.0.11[/COLOR][/B]\n[COLOR fffdb515]Real-Debrid[/COLOR]\n-Check RD cached torrents now comes switched off. Since Debrid Media Manager stopped answering add-ons, it only works with your own DMM sponsor key; switched on without one it did nothing.\n-The DMM API key sits right under it in Accounts > Real-Debrid and shows as soon as you switch it on, instead of at the end of the Real-Debrid section once authorized.\n-Switched on without a key, Real-Debrid results are checked when played, as with it off, and luc_kodi tells you once that the setting needs the key.\n-On updating it is switched off once where it was on without a key. If you had entered a DMM key, it stays on.\n[COLOR fffdb515]Fixes[/COLOR]\n-The labels of Check RD cached torrents and RD 2026 keyword-filter compliance now come from the language files, like the rest of the settings."
+  "version": "2.0.12",
+  "zip": "zips/plugin.video.luc_kodi/plugin.video.luc_kodi-2.0.12.zip",
+  "sha256": "051462f07b6f23fdb41800ee899bd5c054de40d9ec8a11dbe667d579c311b93e",
+  "size": 14779260,
+  "published": "2026-10-20",
+  "changelog": "[B][COLOR ff00fa9a]Version 2.0.12[/COLOR][/B]\n[COLOR fffdb515]System status[/COLOR]\n-New System status page, the last option of the context panel and also in Settings > Providers. Back returns to the panel and Home goes to the luc_kodi main menu.\n-Device: RAM in use, screen resolution and refresh rate, updated every second while the page is open. The device's own figures show in green and what Kodi draws at in grey under them.\n-Accounts: only the services you use, as their logo with a dot. Green is fine and orange needs you, with a line that says why: a debrid subscription ending within 7 days, or a Trakt, SIMKL, WeTrakr or PunchPlay session to sign in again.\n-APIs: checks that TMDb, TheTVDB, Fanart.tv, Trakt and the other services you have switched on answer with luc_kodi's keys.\n-Scrapers: tests your enabled scrapers against one well-known movie and shows the results and the time of each.\n-Green answered fine, orange answered with a problem (no results, slow, key refused or rate limited) and red did not answer.\n-The tests run only when you press Check again. The last result stays on the page with its time.\n-The header shows the device, the Kodi version, whether Kodi is online and whether a new luc_kodi version is available."
 }
