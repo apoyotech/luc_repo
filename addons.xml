@@ -31,6 +31,7 @@
 		<import addon="script.module.requests" />
 		<import addon="script.module.beautifulsoup4" />
 		<import addon="plugin.video.youtube" />
+		<import addon="script.module.pycryptodome" version="3.4.3" optional="true" />
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="luc_kodi.py">
 		<provides>video</provides>
