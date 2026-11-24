@@ -1,0 +1,9 @@
+{
+  "addon": "plugin.video.luc_kodi",
+  "version": "2.0.40",
+  "zip": "zips/plugin.video.luc_kodi/plugin.video.luc_kodi-2.0.40.zip",
+  "sha256": "f29bef96d5a91ab8e650df25a591252c7a4e97518e697f0381e5d597ca28cbb7",
+  "size": 10631864,
+  "published": "2026-11-24",
+  "changelog": "[B][COLOR ff00fa9a]Version 2.0.40[/COLOR][/B]\n[COLOR fffdb515]Faster menus[/COLOR]\n-The main menu and the Movies, TV Shows, Tools, Search, Anime and Premium Services menus open about five times faster and use about 10 MB less memory on every click. They now check your Trakt, SIMKL, MDBList, PunchPlay and WeTrakr accounts from the settings alone, without loading the network and database code. The accounts are read the same way as before, so the same folders show.\n[COLOR fffdb515]Kodi 22[/COLOR]\n-New: protection against a Kodi 22 crash. With Python 3.14, Kodi 22 can close itself when an add-on that started many threads finishes a call (\"WeakSet._remove\", then a crash). luc_kodi now keeps Python's thread, import and logging records in a form that cannot trigger it. Kodi 21 is not affected and stays as it was. kodi.log says whether the protection is on when the service starts."
+}
